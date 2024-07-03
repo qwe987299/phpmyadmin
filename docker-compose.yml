@@ -1,0 +1,13 @@
+services:
+
+    phpmyadmin:
+        container_name: phpmyadmin
+        image: phpmyadmin
+        network_mode: bridge
+        extra_hosts:
+        - "host.docker.internal:host-gateway"
+        ports:
+            - "8080:80"
+        environment:
+            - PMA_HOST=host.docker.internal
+            - UPLOAD_LIMIT=10G
